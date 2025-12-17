@@ -660,6 +660,16 @@ function performFullReset() {
 document.addEventListener('DOMContentLoaded', () => {
     initializeApp();
 
+       // FECHAR MODAL AO CLICAR NO X
+    document.querySelector('.close-btn').addEventListener('click', hideModal);
+
+    // FECHAR MODAL AO CLICAR FORA
+    document.getElementById('modal-container').addEventListener('click', (e) => {
+        if (e.target.id === 'modal-container') {
+            hideModal();
+        }
+    });
+
     const saveButton = document.getElementById('save-game-btn');
     const resetButton = document.getElementById('reset-game-btn');
 
