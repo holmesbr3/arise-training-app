@@ -191,7 +191,7 @@ function showModal(title, body, footerContent) {
     document.getElementById('modal-title').innerHTML = title;
     document.getElementById('modal-body').innerHTML = body;
     document.getElementById('modal-footer').innerHTML = footerContent;
-    document.getElementById('modal-container').style.display = 'block';
+    document.getElementById('modal-container').style.display = 'flex';
 }
 
 function hideModal() {
