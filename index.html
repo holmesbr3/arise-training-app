@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arise: Treinamento de Hunter</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -18,13 +18,13 @@
                 <svg class="app-logo" width="150" height="60" viewBox="0 0 150 60" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+                            <stop offset="0%" style="stop-color:#818cf8;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#c084fc;stop-opacity:1" />
                         </linearGradient>
                     </defs>
-                    <rect width="150" height="60" rx="8" ry="8" fill="#1e1f26" stroke="url(#logoGradient)" stroke-width="2"/>
+                    <rect width="150" height="60" rx="12" ry="12" fill="rgba(30, 41, 59, 0.8)" stroke="url(#logoGradient)" stroke-width="2"/>
                     <text x="15" y="38" font-family="'Orbitron', sans-serif" font-size="28" font-weight="900" fill="url(#logoGradient)">Arise</text>
-                    <text x="115" y="38" font-family="'Courier New', monospace" font-size="24" font-weight="bold" fill="#60a5fa">_</text>
+                    <text x="115" y="38" font-family="'Courier New', monospace" font-size="24" font-weight="bold" fill="#818cf8">_</text>
                 </svg>
                 
                 <div class="player-info">
@@ -150,23 +150,15 @@
         </main>
     </div>
 
-    <!-- Awakening Onboarding Screen -->
-    <!-- 
-    <div id="awakening-overlay">
-        <div class="awakening-content">
-            <h1>[SISTEMA]</h1>
-            <div id="awakening-text"></div>
-            <button id="awakening-continue-btn" onclick="nextAwakeningStep()">Continuar</button>
-        </div>
-    </div>
-    -->
-
-    <!-- Epic Celebration Screen -->
+    <!-- Celebration Screen -->
     <div id="celebration-overlay">
         <div class="celebration-content">
             <h1 id="celebration-title"></h1>
             <p id="celebration-message"></p>
-            <div id="celebration-rank-up" style="display: none;"><p>Seu novo Rank é:</p><h2 id="new-rank-display"></h2></div>
+            <div id="celebration-rank-up" style="display: none;">
+                <p>Seu novo Rank é:</p>
+                <h2 id="new-rank-display"></h2>
+            </div>
             <button id="celebration-continue-btn" onclick="hideCelebration()">Continuar</button>
         </div>
     </div>
