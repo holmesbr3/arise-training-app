@@ -14,9 +14,29 @@
         <div class="bg-animation"></div>
 
         <header id="main-header">
-            <h1><i class="fas fa-terminal"></i> SISTEMA</h1>
-            <div id="player-stats">
-                <span id="player-name">Hunter</span> | Nível <span id="player-level">1</span> | Rank <span id="player-rank">E</span>
+            <div class="header-top">
+                <!-- MELHORIA: Logo do App (substitua o src pelo caminho da sua imagem) -->
+                <img src="https://i.ibb.co/hK4mC1r/arise-logo.png" alt="Arise App Logo" class="app-logo">
+                
+                <div class="player-info">
+                    <div class="player-name-rank">
+                        <span id="player-name">Hunter</span>
+                        <span class="rank-badge" id="player-rank">E</span>
+                    </div>
+                    <div class="power-level">
+                        <span class="power-label">NÍVEL DE PODER</span>
+                        <span id="player-power-level" class="power-value">0</span>
+                    </div>
+                </div>
+                <div class="rank-progress-container">
+                    <svg class="rank-progress-ring" width="70" height="70">
+                        <circle class="rank-progress-ring-bg" stroke-width="5" fill="transparent" r="30" cx="35" cy="35"></circle>
+                        <circle id="rank-progress-ring-fill" class="rank-progress-ring-fill" stroke-width="5" fill="transparent" r="30" cx="35" cy="35"></circle>
+                    </svg>
+                    <div class="rank-progress-text"><span id="rank-percent">0%</span></div>
+                </div>
+            </div>
+            <div class="player-stats-bar">
                 <div class="stat-bar">
                     <div class="bar-label"><i class="fas fa-star"></i> XP</div>
                     <div class="bar-container"><div id="xp-bar" class="bar-fill"></div></div>
@@ -33,13 +53,6 @@
                     <span id="fragments-text">0 / 10</span>
                 </div>
             </div>
-            <div class="rank-progress-container">
-                <svg class="rank-progress-ring" width="80" height="80">
-                    <circle class="rank-progress-ring-bg" stroke-width="6" fill="transparent" r="34" cx="40" cy="40"/>
-                    <circle id="rank-progress-ring-fill" class="rank-progress-ring-fill" stroke-width="6" fill="transparent" r="34" cx="40" cy="40"/>
-                </svg>
-                <div class="rank-progress-text"><span id="rank-percent">0%</span></div>
-            </div>
         </header>
 
         <nav id="main-nav">
@@ -53,28 +66,16 @@
             <!-- Dashboard Screen -->
             <div id="dashboard-screen" class="screen active">
                 <h2>Painel do Hunter</h2>
-                <!-- NOVO: Card do Desafio Semanal -->
                 <div id="weekly-challenge-card" class="card weekly-challenge">
                     <h3><i class="fas fa-calendar-week"></i> Desafio Semanal</h3>
                     <p id="weekly-challenge-description">Carregando desafio...</p>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" id="weekly-challenge-progress"></div>
-                    </div>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" id="weekly-challenge-progress"></div></div>
                     <p id="weekly-challenge-progress-text">0 / 0</p>
-                    <button id="claim-weekly-reward" class="btn-reward" onclick="claimWeeklyReward()" style="display:none;">
-                        <i class="fas fa-gift"></i> Reivindicar Recompensa Semanal
-                    </button>
+                    <button id="claim-weekly-reward" class="btn-reward" onclick="claimWeeklyReward()" style="display:none;"><i class="fas fa-gift"></i> Reivindicar Recompensa Semanal</button>
                 </div>
                 <div class="dashboard-grid">
-                    <div class="card">
-                        <h3><i class="fas fa-chart-line"></i> Resumo Diário</h3>
-                        <p>Missões: <span id="daily-mission-count">0</span> / <span id="total-mission-count">0</span></p>
-                        <p>Portões: <span id="daily-gate-count">0</span></p>
-                    </div>
-                    <div class="card log-card">
-                        <h3><i class="fas fa-terminal"></i> Log do Sistema</h3>
-                        <div id="system-log"></div>
-                    </div>
+                    <div class="card"><h3><i class="fas fa-chart-line"></i> Resumo Diário</h3><p>Missões: <span id="daily-mission-count">0</span> / <span id="total-mission-count">0</span></p><p>Portões: <span id="daily-gate-count">0</span></p></div>
+                    <div class="card log-card"><h3><i class="fas fa-terminal"></i> Log do Sistema</h3><div id="system-log"></div></div>
                 </div>
             </div>
 
@@ -82,9 +83,7 @@
             <div id="missions-screen" class="screen">
                 <h2><i class="fas fa-scroll"></i> Missões Diárias</h2>
                 <div id="mission-list"></div>
-                <button id="claim-daily-reward" class="btn-reward" onclick="claimDailyReward()" style="display:none;">
-                    <i class="fas fa-trophy"></i> Reivindicar Recompensa Diária Completa
-                </button>
+                <button id="claim-daily-reward" class="btn-reward" onclick="claimDailyReward()" style="display:none;"><i class="fas fa-trophy"></i> Reivindicar Recompensa Diária Completa</button>
             </div>
 
             <!-- Gates Screen -->
@@ -97,7 +96,6 @@
             <div id="profile-screen" class="screen">
                 <h2><i class="fas fa-user-ninja"></i> Perfil do Hunter</h2>
                 <div class="profile-grid">
-                    <!-- NOVO: Card de Gerenciamento de Sombras -->
                     <div class="card profile-section">
                         <h3><i class="fas fa-skull-crossbones"></i> Comandante de Sombras</h3>
                         <p>Sombra Equipada: <strong id="equipped-shadow-name">Nenhuma</strong></p>
@@ -124,13 +122,13 @@
                 <h2>Dentro do Portão: <span id="active-gate-name"></span></h2>
                 <div class="card">
                     <p id="active-gate-description"></p>
-                    <div class="gate-timer">
-                        <i class="fas fa-clock"></i> Tempo: <span id="gate-timer">00:00</span>
+                    <div class="workout-display">
+                        <h4><i class="fas fa-clipboard-list"></i> Seu Treino:</h4>
+                        <div id="workout-list"></div>
                     </div>
+                    <div class="gate-timer"><i class="fas fa-clock"></i> Tempo: <span id="gate-timer">00:00</span></div>
                 </div>
-                <button class="btn-danger" onclick="completeActiveGate()">
-                    <i class="fas fa-flag-checkered"></i> Concluir e Limpar Portão
-                </button>
+                <button class="btn-danger" onclick="completeActiveGate()"><i class="fas fa-flag-checkered"></i> Concluir e Limpar Portão</button>
             </div>
         </main>
     </div>
@@ -149,10 +147,7 @@
         <div class="celebration-content">
             <h1 id="celebration-title"></h1>
             <p id="celebration-message"></p>
-            <div id="celebration-rank-up" style="display: none;">
-                <p>Seu novo Rank é:</p>
-                <h2 id="new-rank-display"></h2>
-            </div>
+            <div id="celebration-rank-up" style="display: none;"><p>Seu novo Rank é:</p><h2 id="new-rank-display"></h2></div>
             <button id="celebration-continue-btn" onclick="hideCelebration()">Continuar</button>
         </div>
     </div>
@@ -163,6 +158,7 @@
             <span class="close-btn" onclick="hideModal()">&times;</span>
             <h2 id="modal-title"></h2>
             <p id="modal-body"></p>
+            <div id="modal-workout-list" class="workout-display"></div>
             <div id="modal-footer"></div>
         </div>
     </div>
