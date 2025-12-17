@@ -11,7 +11,6 @@
 <body>
 
     <div id="app-container">
-        <!-- Animated Background -->
         <div class="bg-animation"></div>
 
         <header id="main-header">
@@ -28,22 +27,18 @@
                     <div class="bar-container"><div id="arks-bar" class="bar-fill"></div></div>
                     <span id="arks-text">0</span>
                 </div>
-                 <!-- NOVO: Contador de Fragmentos de Sombra -->
                 <div class="stat-bar">
                     <div class="bar-label"><i class="fas fa-skull"></i> Frag. Sombra</div>
                     <div class="bar-container"><div id="fragments-bar" class="bar-fill"></div></div>
                     <span id="fragments-text">0 / 10</span>
                 </div>
             </div>
-            <!-- Rank Progress Ring -->
             <div class="rank-progress-container">
                 <svg class="rank-progress-ring" width="80" height="80">
                     <circle class="rank-progress-ring-bg" stroke-width="6" fill="transparent" r="34" cx="40" cy="40"/>
                     <circle id="rank-progress-ring-fill" class="rank-progress-ring-fill" stroke-width="6" fill="transparent" r="34" cx="40" cy="40"/>
                 </svg>
-                <div class="rank-progress-text">
-                    <span id="rank-percent">0%</span>
-                </div>
+                <div class="rank-progress-text"><span id="rank-percent">0%</span></div>
             </div>
         </header>
 
@@ -58,6 +53,18 @@
             <!-- Dashboard Screen -->
             <div id="dashboard-screen" class="screen active">
                 <h2>Painel do Hunter</h2>
+                <!-- NOVO: Card do Desafio Semanal -->
+                <div id="weekly-challenge-card" class="card weekly-challenge">
+                    <h3><i class="fas fa-calendar-week"></i> Desafio Semanal</h3>
+                    <p id="weekly-challenge-description">Carregando desafio...</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="weekly-challenge-progress"></div>
+                    </div>
+                    <p id="weekly-challenge-progress-text">0 / 0</p>
+                    <button id="claim-weekly-reward" class="btn-reward" onclick="claimWeeklyReward()" style="display:none;">
+                        <i class="fas fa-gift"></i> Reivindicar Recompensa Semanal
+                    </button>
+                </div>
                 <div class="dashboard-grid">
                     <div class="card">
                         <h3><i class="fas fa-chart-line"></i> Resumo Diário</h3>
@@ -90,8 +97,11 @@
             <div id="profile-screen" class="screen">
                 <h2><i class="fas fa-user-ninja"></i> Perfil do Hunter</h2>
                 <div class="profile-grid">
+                    <!-- NOVO: Card de Gerenciamento de Sombras -->
                     <div class="card profile-section">
-                        <h3><i class="fas fa-skull"></i> Exército de Sombras</h3>
+                        <h3><i class="fas fa-skull-crossbones"></i> Comandante de Sombras</h3>
+                        <p>Sombra Equipada: <strong id="equipped-shadow-name">Nenhuma</strong></p>
+                        <p id="equipped-shadow-bonus">Escolha uma sombra para receber seu bônus.</p>
                         <div id="shadow-army-list" class="collection-grid"></div>
                     </div>
                     <div class="card profile-section">
