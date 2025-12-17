@@ -425,6 +425,7 @@ button:disabled { background-color: #484f58; cursor: not-allowed; transform: sca
 }
 
 #celebration-overlay, .modal-container {
+    display: none
     position: fixed;
     z-index: 1000;
     left: 0;
